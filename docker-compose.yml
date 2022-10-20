@@ -1,0 +1,9 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - 5050:4000
+  mongodb:
+    image: mongo
+    volumes:
+      - ./data:/data/db

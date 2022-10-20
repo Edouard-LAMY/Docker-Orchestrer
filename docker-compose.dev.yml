@@ -1,0 +1,19 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - 5050:4000
+    command: npm run dev
+    volumes:
+      - ./server/src/:/app/src/
+  web:
+    build: ./client
+    ports:
+      - 8080:3000
+    volumes:
+      - ./client/src/:/app/src/
+      - ./client/public/:/app/public/
+  mongodb:
+    image: mongo
+    volumes:
+      - ./data:/data/db
